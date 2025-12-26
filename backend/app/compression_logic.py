@@ -199,56 +199,56 @@ def compress_image(filename, s):
         s (int): Rank of new image.
     """
     # Determine if the image is in color or not
-    color = False
-    image = imread(filename) / 255
-    if len(image.shape) == 3:
-        color = True
+    # color = False
+    # image = imread(filename) / 255
+    # if len(image.shape) == 3:
+    #     color = True
+    #
+    # # Plot the original image
+    # plt.clf()
+    # plt.subplot(121)
+    # plt.axis("off")
+    # if color:
+    #     plt.imshow(image)
+    # else:
+    #     plt.imshow(image, cmap="gray")
+    #
+    # # Set qualities of the graph
+    # plt.title("Original")
+    # plt.subplot(122)
+    # plt.axis("off")
+    #
+    # # Initialize variables
+    # compressed = None
+    # num_entries = 0
+    #
+    # # The case if the image is in color
+    # if color:
+    #     # Seperate the layers
+    #     R = image[:, :, 0]
+    #     G = image[:, :, 1]
+    #     B = image[:, :, 2]
+    #     # Compress each layer
+    #     com_R, R_entries = svd_approx(R, s)
+    #     com_G, G_entries = svd_approx(G, s)
+    #     com_B, B_entries = svd_approx(B, s)
+    #     # Calculate total entries nd put them back togehter
+    #     num_entries = R_entries + G_entries + B_entries
+    #     compressed = np.stack((com_R, com_G, com_B), axis=2)
+    #     # Make sure the clip problematic values
+    #     compressed = np.clip(compressed, 0, 1)
+    #     plt.imshow(compressed)
+    # else:
+    #     # Black and white case, just compress and show
+    #     compressed, num_entries = svd_approx(image, s)
+    #     plt.imshow(compressed, cmap="gray")
+    # plt.title("Compressed")
+    #
+    # # Save the figure.
+    # plt.suptitle(f"Compressed has {image.size - num_entries} less entries than the original")
+    # plt.savefig("compression")
 
-    # Plot the original image
-    plt.clf()
-    plt.subplot(121)
-    plt.axis("off")
-    if color:
-        plt.imshow(image)
-    else:
-        plt.imshow(image, cmap="gray")
-
-    # Set qualities of the graph
-    plt.title("Original")
-    plt.subplot(122)
-    plt.axis("off")
-
-    # Initialize variables
-    compressed = None
-    num_entries = 0
-
-    # The case if the image is in color
-    if color:
-        # Seperate the layers
-        R = image[:, :, 0]
-        G = image[:, :, 1]
-        B = image[:, :, 2]
-        # Compress each layer
-        com_R, R_entries = svd_approx(R, s)
-        com_G, G_entries = svd_approx(G, s)
-        com_B, B_entries = svd_approx(B, s)
-        # Calculate total entries nd put them back togehter
-        num_entries = R_entries + G_entries + B_entries
-        compressed = np.stack((com_R, com_G, com_B), axis=2)
-        # Make sure the clip problematic values
-        compressed = np.clip(compressed, 0, 1)
-        plt.imshow(compressed)
-    else:
-        # Black and white case, just compress and show
-        compressed, num_entries = svd_approx(image, s)
-        plt.imshow(compressed, cmap="gray")
-    plt.title("Compressed")
-
-    # Save the figure.
-    plt.suptitle(f"Compressed has {image.size - num_entries} less entries than the original")
-    plt.savefig("compression")
-
-
+    return "compressed image hehe"
 
 # if __name__ == '__main__':
 #     A = np.array([[3,1],[1,3]])
